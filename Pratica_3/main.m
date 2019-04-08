@@ -24,7 +24,7 @@ endfor
 
 for i = 1:M
   for j = 1:N
-    mat(i,j) = resultados(m(i,j));
+    mat(i,j) = resultados(m(i,j)); % O arrendondamento é feite implicitamente pelo Octave
    endfor
 endfor
 
