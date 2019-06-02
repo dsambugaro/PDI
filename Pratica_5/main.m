@@ -22,6 +22,3 @@ retorno16 = mediaArtm(original, 8);
 imwrite(retorno16, 'imagem16.png', "quality", 100);
 retorno64 = mediaArtm(original, 64);
 imwrite(retorno64, 'imagem64.png', "quality", 100);
-
-
- 
