@@ -26,12 +26,13 @@ imwrite(transformada, 'transformada.png', "quality", 100);
 
 D0 = 20;
 
-%for u=1:P
-%  for v=1:Q
-%    if
-%    filtro(u,v) ;
-%  endfor
-%endfor
+for u=1:P
+  for v=1:Q
+    if(false)
+      filtro(u,v) ;
+    endif
+  endfor
+endfor
 
 figure(2), imshow(filtro);
 imwrite(filtro, 'filtro.png', "quality", 100);
