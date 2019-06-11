@@ -23,16 +23,16 @@ D0 = 20;
 
 for u=1:P
   for v=1:Q
-  D = sqrt((u - P/2)^2 + (v - Q/2)^2);
-  filtro(u,v) = e^(-(D^2)/(2*(D0^2)));
+    D = sqrt((u - P/2)^2 + (v - Q/2)^2);
+    filtro(u,v) = e^(-(D^2)/(2*(D0^2)));
   endfor
 endfor
 
 figure(2), imshow(filtro);
 
 transformada = transformada.* filtro;
-imwithfiltro = ifftshift(transformada);
-imwithfiltro = ifft2(imwithfiltro);
+transformada = ifftshift(transformada);
+imwithfiltro = ifft2(transformada);
 imwithfiltro = real(imwithfiltro);
 resultado = imwithfiltro([1:imsize(1)], [1:imsize(2)]);
 
