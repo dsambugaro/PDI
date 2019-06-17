@@ -6,30 +6,31 @@ imsize = size(original);
 
 
 transformada =  fft2(original, imsize(1)*2, imsize(2)*2);
-% A dimensao da transformada e M*2, por N*2 (O dobro da imagem original)
-% Neste caso 512*512;
 
 transformada = fftshift(transformada);
 espectro = transformada;
 
 figure(1),imshow(uint8(abs(espectro)));
+imwrite(uint8(abs(espectro)), 'espectro.png', "quality", 100);
+filtro = ones(size(transformada));
 
-%filtro = ones(size(transformada));
-
-filtro = imread('Filtro.png');
-filtro = im2double(filtro);
+%filtro = imread('Filtro.png');
+%filtro = im2double(filtro);
 
 P = size(transformada)(1);
 Q = size(transformada)(2);
-
-imwrite(transformada, 'transformada.png', "quality", 100);
 
 D0 = 20;
 
 for u=1:P
   for v=1:Q
-    if(false)
-      filtro(u,v) ;
+    if(v >= 725 && v <= 783)
+      if(u >= 0 && u <= 790 || u >= 826 && u <= 1616)
+        filtro(u, v) = 0;
+      endif
+    endif
+    if((v >= 705 && v <= 798) && ((u >= 0 && u <= 50) || (u >= 1566 && u <= 1616)))
+      filtro(u, v) = 0;
     endif
   endfor
 endfor
